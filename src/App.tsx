@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import CZKCurrencyExchange from './components/CZKCurrencyExchange/CZKCurrencyExchange';
-import GlobalStyles from './styles/Global.styled';
+import GlobalStyles from './Global.styled';
 
 const queryClient = new QueryClient();
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyles />
-        <CZKCurrencyExchange />
+      <CZKCurrencyExchange />
     </QueryClientProvider>
   );
 }
