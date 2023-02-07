@@ -8,6 +8,11 @@ export const TableContainer = styled.div`
     font-size: 14px;
     max-height: 400px;
     overflow: auto;
+
+    -webkit-box-shadow: 6px -4px 25px 0px rgba(235,235,235,1);
+    -moz-box-shadow: 6px -4px 25px 0px rgba(235,235,235,1);
+    box-shadow: 6px -4px 25px 0px rgba(235,235,235,1);
+
     @media (max-width: 480px) {
         max-height: 320px;
     }

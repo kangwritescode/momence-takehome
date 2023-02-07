@@ -20,6 +20,10 @@ export const Card = styled.div`
     max-width: 600px;
     margin: 20px 8px 40px;
     background: white;
+
+    -webkit-box-shadow: 6px 4px 25px 0px rgba(235,235,235,1);
+    -moz-box-shadow: 6px 4px 25px 0px rgba(235,235,235,1);
+    box-shadow: 6px 4px 25px 0px rgba(235,235,235,1);
 `
 export const CurrencyCalculatorInput = styled(CurrencyInput)`
     border: 1px solid lightgray;
@@ -45,8 +49,8 @@ export const Select = styled.select`
     border: 1px solid lightgray;
     border-radius: 16px;
     padding: 12px;
-    &:focus {
-        outline: none;
+    &:hover {
+        cursor: pointer;
     }
 `
 
