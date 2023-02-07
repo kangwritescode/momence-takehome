@@ -6,8 +6,11 @@ export const TableContainer = styled.div`
     border-radius: 16px;
     padding: 6px 6px 6px 16px;
     font-size: 14px;
-    height: 60vh;
+    max-height: 400px;
     overflow: auto;
+    @media (max-width: 480px) {
+        max-height: 320px;
+    }
 `
 
 export const Table = styled.table`
@@ -20,14 +23,6 @@ export const TableRow = styled.tr`
     &:not(:last-child) {
         border-top: 1px solid gainsboro;
     }
-    &:hover {
-        background: whitesmoke;
-        cursor: pointer;
-    }
-    &:active {
-        background: #F0F0F0;
-        cursor: pointer;
-    }
 `
 export const TableHead = styled.thead`
 `
@@ -38,6 +33,6 @@ export const TableHeader = styled.th`
     padding: 4px;
 `
 export const TableDatum = styled.td`
-    padding: 4px;
+    padding: 6px 4px;
     width: 100px;
 `
