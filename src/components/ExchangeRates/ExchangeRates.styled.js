@@ -24,15 +24,10 @@ export const TableRow = styled.tr`
         border-top: 1px solid gainsboro;
     }
 `
-export const TableHead = styled.thead`
-`
-export const TableBody = styled.tbody`
-    position: relative;
-`
 export const TableHeader = styled.th`
     padding: 4px;
 `
 export const TableDatum = styled.td`
     padding: 6px 4px;
-    width: 100px;
+    width: 106px;
 `

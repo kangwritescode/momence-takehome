@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { getData } from '../../my-api/api'
 import { Header, Container } from './CZKCurrencyExchange.styled'

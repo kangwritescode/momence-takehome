@@ -45,10 +45,9 @@ export const Select = styled.select`
     border: 1px solid lightgray;
     border-radius: 16px;
     padding: 12px;
-`
-
-export const ConversionInfo = styled.div`
-    /* width: 100%; */
+    &:focus {
+        outline: none;
+    }
 `
 
 export const KorunyText = styled.p`

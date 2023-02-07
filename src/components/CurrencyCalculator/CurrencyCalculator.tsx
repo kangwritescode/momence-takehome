@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Card, ConversionInfo, ConvertedText, CurrencyCalculatorInput, GridLayout, KorunyText, Label, Select } from './CurrencyCalculator.styled'
+import { CurrencyData } from '../../types';
+import { Card, ConvertedText, CurrencyCalculatorInput, GridLayout, KorunyText, Label, Select } from './CurrencyCalculator.styled'
 
-interface ExchangeRatesProps {
+interface CurrencyCalculatorProps {
     rows?: Array<string>;
 }
 
-interface CurrencyData {
-    [code: string]: {
-        country: string,
-        currency: string,
-        amount: number,
-        code: string,
-        rate: number
-
-    }
-}
-function CurrencyCalculator({ rows }: ExchangeRatesProps) {
+function CurrencyCalculator({ rows }: CurrencyCalculatorProps) {
     const [selectedCountry, setSelectedCountry] = useState('')
     const [currencyData, setCurrencyData] = useState<CurrencyData>({})
     const [koruny, setKoruny] = useState<string>()
     const [convertedAmount, setConvertedAmount] = useState<number>()
 
+    // Parses fetched data and sets currencyData
     useEffect(() => {
         const updatedRows: CurrencyData = {}
         if (rows) {
@@ -38,6 +30,7 @@ function CurrencyCalculator({ rows }: ExchangeRatesProps) {
         setCurrencyData(updatedRows)
     }, [rows])
 
+    // Calculates converted amount given: selectedCountry, koruny, currencyData
     useEffect(() => {
         if (selectedCountry && koruny && currencyData) {
             const { amount, rate } = currencyData[selectedCountry]
@@ -61,21 +54,24 @@ function CurrencyCalculator({ rows }: ExchangeRatesProps) {
                     onChange={({ target }: React.ChangeEvent<HTMLSelectElement>) => setSelectedCountry(target.value)}>
                     <option value="" disabled selected>Select a Currency</option>
                     {currencyData && Object.values(currencyData)?.map(({ code, country, currency }) => {
-                        return (
-                            <option
-                                key={country}
-                                value={country}>
-                                {`${code} - ${country} ${currency}`}
-                            </option>
-                        )
+                        if (country) {
+                            return (
+                                <option
+                                    key={country}
+                                    value={country}>
+                                    {`${code} - ${country} ${currency}`}
+                                </option>
+                            )
+                        }
+
                     })}
                 </Select>
             </GridLayout>
             {(convertedAmount && currencyData && selectedCountry) ? (
-                <ConversionInfo>
+                <>
                     <KorunyText>{`${koruny?.slice(2)} Czech Koruny =`}</KorunyText>
                     <ConvertedText>{`${convertedAmount.toFixed(2)} ${selectedCountry} ${currencyData[selectedCountry].currency}`}</ConvertedText>
-                </ConversionInfo>
+                </>
             ) : undefined}
         </Card>
     )

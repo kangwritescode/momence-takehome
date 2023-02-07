@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+// Imported from https://loading.io/css/
+
 const AnimatedLoader = styled.div`
     display: inline-block;
     position: relative;

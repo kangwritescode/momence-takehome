@@ -1,4 +1,3 @@
-import React from 'react'
 import AnimatedLoader from './Loader.styled';
 
 function Loader() {
